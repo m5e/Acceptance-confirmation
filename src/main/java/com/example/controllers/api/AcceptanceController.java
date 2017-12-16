@@ -1,7 +1,6 @@
 package com.example.controllers.api;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+
 import java.util.List;
 import java.util.Map;
 
@@ -9,31 +8,22 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.controllers.api.form.bounenkaiForm;
 import com.example.model.entities.bounenkai2;
 import com.example.model.services.BounenkaiService;
-import com.example.model.services.ReportService;
 
 @Controller
 public class AcceptanceController {
 
 	@Autowired
 	BounenkaiService bounenkaiService;
-
-	@Autowired
-	private ReportService reportService;
 
 	// 全件検索し、nameのみ一覧表示
 	@Transactional
@@ -84,19 +74,19 @@ public class AcceptanceController {
 	/**
 	 * DownLoad
 	 */
-	@Transactional
-	@RequestMapping(value = "/eventdetail/download", method = RequestMethod.GET)
-	public ResponseEntity download() throws UnsupportedEncodingException {
-		List<bounenkai2> rows = bounenkaiService.findAll();
+//	@Transactional
+//	@RequestMapping(value = "/eventdetail/download", method = RequestMethod.GET)
+//	public ResponseEntity download() throws UnsupportedEncodingException {
+//		List<bounenkai2> rows = bounenkaiService.findAll();
 		// Set Header
-		final HttpHeaders headers = new HttpHeaders() {
-			{
-				setContentDispositionFormData("filename", URLEncoder.encode("event.xlsx", "UTF-8"));
-			}
-		};
+//		final HttpHeaders headers = new HttpHeaders() {
+//			{
+//				setContentDispositionFormData("filename", URLEncoder.encode("event.xlsx", "UTF-8"));
+//			}
+//		};
 		// Create excel byte data
-		byte[] excelData = reportService.createEventReport(rows);
-		;
-		return new ResponseEntity<>(excelData, headers, HttpStatus.OK);
-	}
+//		byte[] excelData = reportService.createEventReport(rows);
+//		;
+//		return new ResponseEntity<>(excelData, headers, HttpStatus.OK);
+//	}
 }
