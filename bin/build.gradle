@@ -1,0 +1,85 @@
+buildscript {
+  repositories {
+	mavenCentral()
+	jcenter()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+    classpath("org.springframework:springloaded:1.2.6.RELEASE")
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+springBoot {
+    mainClass = "com.example.Main"
+    executable = true
+}
+
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = file("$buildDir/classes/main/")
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.example.Main'
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/java'
+        }
+        resources {
+            srcDir 'src/resources'
+        }
+    }
+}
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+  compile ("org.apache.poi:poi:3.16")
+  compile ("org.apache.poi:poi-ooxml:3.16")
+  compile ("org.apache.poi:poi-scratchpad:3.16")
+  compile ("org.apache.poi:poi-ooxml-schemas:3.16")
+  compile("org.springframework.boot:spring-boot-starter-web")
+  compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+//  compile('org.springframework.boot:spring-boot-starter-security') 認証アラートの表示をやめます
+  compile("org.springframework.boot:spring-boot-starter-data-jpa")
+  compile("org.springframework.boot:spring-boot-starter-mail")
+  compile("org.springframework.boot:spring-boot-starter-batch")
+  compile("org.thymeleaf.extras:thymeleaf-extras-java8time:2.1.0.RELEASE")
+  compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.2.9")
+  compile("commons-net:commons-net:3.3")
+  compile("org.apache.commons:commons-lang3:3.4")
+  compile("com.google.firebase:firebase-server-sdk:3.0.1")
+  compile("com.h2database:h2")
+  testCompile("org.springframework.boot:spring-boot-starter-test")
+//  compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4') 認証アラート表示をやめます
+  compile('org.mybatis:mybatis:3.2.8')
+  compile('org.mybatis:mybatis-spring:1.2.2')
+  compile('org.webjars:handsontable:0.26.0')
+
+  // webjar
+  compile("org.webjars:jquery:2.2.1")
+  compile("org.webjars.npm:bootstrap:4.0.0-alpha.3")
+//  compile("org.webjars.bower:adminlte:2.3.11") 色々カスタマイズしたいのでwebjarで取得するのはやめます
+  compile('org.webjars.npm:dropify:0.2.1')
+  compile('org.webjars:momentjs:2.18.1')
+  compile('org.webjars.bower:sweetalert2:6.6.2')
+
+}

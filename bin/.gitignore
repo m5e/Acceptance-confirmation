@@ -1,0 +1,33 @@
+.vagrant
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+*.log
+*.lck
+Gemfile.lock
+.bundle/*
+out/*
+log/
+.gradle/
+build/
+Thumbs.db
+.DS_Store
+# For TextMate:
+*.tmproj
+tmtags
+\#*
+.\#*
+# For vim:
+*.swp
+.project
+.classpath
+.settings
+.idea/
+*.iml
+*.ipr
+*.iws
+/bin/
+.metadata/*
