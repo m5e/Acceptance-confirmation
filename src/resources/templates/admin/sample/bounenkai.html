@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<!--
+	Traveler by freehtml5.co
+	Twitter: http://twitter.com/fh5co
+	URL: http://freehtml5.co
+-->
+<html>
+<head>
+	<link th:replace="admin/layout :: bounenkai_metas" />
+	<title>忘年会 | 出欠簿</title>
+	<link th:replace="admin/layout :: bounenkai_links" />
+</head>
+<body class="skin-blue sidebar-mini sidebar-collapse">
+	<div class="gtco-loader"></div>
+	<!-- Top -->
+	<!-- Content Wrapper -->
+	<div class="content-wrapper">
+		<!-- Page content -->
+		<section class="">
+			<form action="/admin/sample/bounenkai" th:object="${bounenkaiForm}" method="get" class="form-horizontal">
+				<div id="page">
+					<header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner" style="background-color: rgba(51, 67, 89, 1); background-size: cover; background-blend-mode: darken; background-image: url(/traveler/images/img_bg_2.jpg)">
+						<div class="gtco-container">
+							<div class="row">
+								<div class="col-md-12 col-md-offset-0">
+									<div class="row row-mt-12em">
+										<div class="col-md-12 mt-text animate-box"
+											data-animate-effect="fadeInUp">
+											<h1>忘年会にようこそ！</h1>
+											<h2>出席を確認したいので名前を選択してください</h2>
+										</div>
+
+										<div class="col-md-12 col-md-pull-0 animate-box"
+											data-animate-effect="fadeInRight">
+											<div class="form-wrap">
+												<div class="tab">
+													<div class="tab-content text-left">
+														<div class="tab-content-inner active" data-content="signup">
+                                                            <div th:each="bounenkai : ${bounenkais}">
+                                                                <div class="index-bar" th:text="${bounenkai.key}"></div>
+                                                                <table class="btn-table">
+                                                                    <tbody>
+                                                                        <tr th:each="attendance:${bounenkai.value}">
+                                                                            <td>
+                                                                                <button type="button"
+                                                                                        th:text="${attendance.name}"
+                                                                                        th:class="${attendance.flag=='出席'}?
+                                                                                        'btn btn-gray btn-lg btn-block bounenkai-btn':
+                                                                                        'btn btn-primary btn-lg btn-block bounenkai-btn'"
+                                                                                        data-toggle="modal" data-target="#myModal-data"
+                                                                                        data-name="${attendance.name}"
+                                                                                        th:attr="data-id=${attendance.id},data-name=${attendance.name}" ></button>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</header>
+				</div>
+				<div class="gototop js-top">
+					<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+				</div>
+			</form>
+		</section>
+	</div>
+
+	<!--モーダルウィンドウが表示されている時 -->
+	<div class="modal fade" id="myModal-data" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close"></button>
+					<h3 class="modal-title">出欠確認</h3>
+				</div>
+
+				<div class="modal-body">
+					<form class="form-horizontal">
+						<input type="text" id="id2" value="" />
+						<p>さん登録してもよろしいですか？</p>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<form id="modal-form" class="form-horizontal" action="#"
+						th:action="@{/admin/sample/bounenkai}" method="post">
+
+						<input id="id" type="hidden" name="id" value="" />
+						<button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+						<button id="modal-ok" type="button" class="btn btn-default"
+							data-dismiss="modal">　　OK　　</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script th:replace="admin/layout :: bounenkai_scripts" />
+	<script type="text/javascript">
+		//登録完了通知
+		$(window).on('load', function() {
+
+			//URLにsuccessが含まれていたら実行
+			if (document.URL.match("/?success=true")) {
+
+				//登録完了を通知するアラートを表示
+				iziToast.show({
+					theme : 'dark',
+					title : '登録が完了しました！',
+					titleSize: '15',
+				    titleLineHeight: '40',
+				    titleColor : '#FFFFFF',
+					message : 'クローク担当から番号札を受け取ってください',
+					messageSize: '15',
+				    messageLineHeight: '40',
+				    messageColor : '#FFFFFF',
+				    backgroundColor : '#888888',
+					position : 'topCenter', //配置位置⇒bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter
+					progressBarColor : 'rgb(0, 255, 184)',
+					timeout : 6000, //6秒間表示してfadeout
+ 					transitionIn: 'fadeIn',
+					transitionOut: 'flipOutX'
+				});
+			}
+		});
+
+		// class属性にbounenkai-btnが指定されているタグにイベント付与
+		$('.bounenkai-btn').on('click', function() {
+			// data-id属性を取得
+			var selectedId = $(this).attr('data-id');
+			// data-name属性を取得
+			var selectedName = $(this).attr('data-name');
+			// hiddenに設定
+			$("#id").attr('value', selectedId);
+			$("#id2").attr('value', selectedName);
+		});
+
+		// id=modal-okがclickされたら
+		$('#modal-ok').on('click', function() {
+			// formの中にhiddenが入ってるからidを飛ばせる
+			$('#modal-form').submit();
+		});
+	</script>
+</body>
+</html>
+

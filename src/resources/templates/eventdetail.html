@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<!--
+	Traveler by freehtml5.co
+	Twitter: http://twitter.com/fh5co
+	URL: http://freehtml5.co
+-->
+<html>
+<head>
+<link th:replace="admin/layout :: bounenkai_metas" />
+<title>忘年会 | 詳細画面</title>
+
+<link th:replace="admin/layout :: bounenkai_links" />
+</head>
+<body>
+
+	<div class="gtco-loader"></div>
+
+	<form action="/eventdetail" th:object="${bounenkaiForm}" method="get"
+		class="form-horizontal">
+
+		<div id="page">
+
+			<nav class="gtco-nav" role="navigation">
+				<div class="gtco-container">
+					<div class="row">
+						<div class="col-sm-4 col-xs-12">
+							<div id="gtco-logo">
+								<a href="management.html">↩main page! <em>.</em></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+
+			<div id="gtco-subscribe">
+				<div class="gtco-container">
+
+					<div class="row animate-box">
+						<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+							<h2>Events detail</h2>
+							<p>イベントに関する詳細は以下のようになっています。</p>
+							<p>イベント：忘年会</p>
+							<p>実施日：12/22</p>
+							<p>参加者：<span th:text="${present}">0</span>名</p>
+							<p>欠席者：<span th:text="${absent}">0</span>名</p>
+							<a href="/eventdetail/download" class="btn btn-primary" style="line-height: initial;">ダウンロード</a>
+						</div>
+					</div>
+
+					<div class="row animate-box">
+						<div class="col-md-9 col-md-offset-2">
+							<form class="form-inline">
+								<div class="col-md-11 col-sm-1">
+									<div class="form-group">
+										<table class="table">
+											<tbody>
+												<tr class="text-original-white">
+													<th>社員名</th>
+													<th>社員名(ひらがな)</th>
+													<th>出欠情報</th>
+												</tr>
+												<tr th:each="management : ${manage}"
+													th:object="${management}" class="text-original-white">
+
+													<td th:text="*{name}" />
+
+													<td th:text="*{name2}" />
+
+													<td th:text=" *{flag}" />
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<script th:replace="admin/layout :: bounenkai_scripts" />
+</body>
+</html>
