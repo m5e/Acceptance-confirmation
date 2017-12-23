@@ -11,7 +11,8 @@ http://qiita.com/quwahara/items/9c4e5fbda421cfcb09ad
 http://tracpath.com/bootcamp/learning_git_sourcetree.html
 
 ## 実行
-3.コマンドプロンプトにて、クローンしたフォルダへ移動/n
+3.コマンドプロンプトにて、クローンしたフォルダへ移動
+
 ```$cd XXXX```
 
 4.ビルド
