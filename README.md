@@ -19,8 +19,8 @@ http://tracpath.com/bootcamp/learning_git_sourcetree.html
 
 2.ビルド
 
-$gradle build
+```$gradle build```
 
 3.実行
 
-$gradle bootRun
+```$gradle bootRun```
