@@ -4,7 +4,7 @@
 ## 導入手順
 ※Java8が入っていることが前提ですが、既に入れていたので割愛
 
-1.Gradleのインストール
+1.Gradleのインストール(Win10向け)
 http://qiita.com/quwahara/items/9c4e5fbda421cfcb09ad
 
 2.sourcetreeのインストール
