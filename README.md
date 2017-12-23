@@ -12,7 +12,7 @@ http://tracpath.com/bootcamp/learning_git_sourcetree.html
 
 ## 実行
 3.コマンドプロンプトにて、クローンしたフォルダへ移動
-```$cd XXXX
+```$cd XXXX```
 
 4.ビルド
 $gradle build
