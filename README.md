@@ -3,6 +3,7 @@
 
 ## 環境構築
 1.java1.8にアップデート
+
 1-1.インストール
 ```sudo yum install java-1.8.0-openjdk.x86_64```
 
