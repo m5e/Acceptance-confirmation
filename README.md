@@ -39,7 +39,7 @@ http://tracpath.com/bootcamp/learning_git_sourcetree.html
 ```gradle bootRun```
 
 ### EC2サーバ
-1.gradle.batのあるフォルダへ移動
+1.「gradle.bat」のあるフォルダへ移動
 
 ```$cd XXXX```
 
