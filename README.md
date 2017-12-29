@@ -12,15 +12,17 @@ http://qiita.com/quwahara/items/9c4e5fbda421cfcb09ad
 
 http://tracpath.com/bootcamp/learning_git_sourcetree.html
 
+3.java1.8をインストール
+```sudo yum install java-1.8.0-openjdk.x86_64```
+
+4.じjava1.8にアップデート
+```sudo alternatives --config java```
+⇒java1.8を選択
+
 ## 実行
 1.クローンしたフォルダへ移動
 
 ```$cd XXXX```
 
-2.ビルド
-
-```$gradle build```
-
-3.実行
-
-```$gradle bootRun```
+2.実行
+```./gradle.bat```
