@@ -24,7 +24,22 @@ http://tracpath.com/bootcamp/learning_git_sourcetree.html
  
  
 ## 実行
+
+### ローカル環境
 1.クローンしたフォルダへ移動
+
+```$cd XXXX```
+
+2.ビルド
+
+```gradle build```
+
+3.実行
+
+```gradle bootRun```
+
+### EC2サーバ
+1.gradle.batのあるフォルダへ移動
 
 ```$cd XXXX```
 
