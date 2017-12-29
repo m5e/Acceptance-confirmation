@@ -28,4 +28,5 @@ http://tracpath.com/bootcamp/learning_git_sourcetree.html
 ```$cd XXXX```
 
 2.実行
+
 ```./gradle.bat```
