@@ -10,23 +10,23 @@ bootstrap4
 
 
 ## 環境構築
-1.java1.8にアップデート
+### java1.8にアップデート
 
-1-1.インストール
+#### インストール
 ```sudo yum install java-1.8.0-openjdk.x86_64```
 
-1-2.アップデート
+#### アップデート
 ```sudo alternatives --config java```
 
 ⇒java1.8を選択
 
  
-2.Gradleのインストール(Win10向け)
+### Gradleのインストール(Win10向け)
 
 http://qiita.com/quwahara/items/9c4e5fbda421cfcb09ad
 
  
-3.sourcetreeのインストール
+### sourcetreeのインストール
 
 http://tracpath.com/bootcamp/learning_git_sourcetree.html
  
@@ -34,19 +34,19 @@ http://tracpath.com/bootcamp/learning_git_sourcetree.html
 ## 実行
 
 ### ローカル環境
-1.クローンしたフォルダへ移動
+#### クローンしたフォルダへ移動
 
 ```$cd XXXX```
 
-2.ビルド
+#### ビルド
 
 ```gradle build```
 
-3.実行
+#### 実行
 
 ```gradle bootRun```
 
-### EC2サーバ
+#### EC2サーバ
 1.「gradle.bat」のあるフォルダへ移動
 
 ```$cd XXXX```
