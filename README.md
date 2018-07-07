@@ -6,7 +6,7 @@ JDK8
 
 spring boot
 
-bootstrap4  
+bootstrap  
 
 
 ## 環境構築
